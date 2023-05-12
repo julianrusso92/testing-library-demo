@@ -21,7 +21,9 @@ describe("Register component", () => {
 
     it("should show error message when all the fields are not entered", async () => {
         render(<Register />);
-        const buttonElement = screen.getByRole("button");
+        const buttonElement = screen.getByRole('button', {
+            name: /register/i
+        });
         //Always add an await keyword before triggering any event using userEvent as you may not know when the action will be completed.
         await userEvent.click(buttonElement);//Hay que agregar el await, porque sino el alert no aparece, por tema de tiempos.
         // screen.debug();
@@ -37,7 +39,9 @@ describe("Register component", () => {
 
     it("should show success message when the registration is successful.", async () => {
         render(<Register />);
-        const buttonElement = screen.getByRole("button");
+        const buttonElement = screen.getByRole('button', {
+            name: /register/i
+        });
         await userEvent.click(buttonElement);
         const alertElement = screen.getByRole("alert");
         expect(alertElement).toBeInTheDocument();
