@@ -45,5 +45,5 @@ describe("Register component", () => {
         await userEvent.click(buttonElement);
         const alertElement = screen.getByRole("alert");
         expect(alertElement).toBeInTheDocument();
-    })
+    });
 });
